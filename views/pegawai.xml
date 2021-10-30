@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+   
+    <!-- res.partner inherit form view -->
+    <record id="inherit_res_partner_view_id" model="ir.ui.view">
+        <field name="name">res.partner.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="is_customernya" />
+                <field name="is_pegawainya" />
+            </field>
+        </field>
+    </record>
+
+
+
+    <!-- res.partner action window -->
+    <record id="pegawai_action_window" model="ir.actions.act_window">
+      <field name="name">Pegawai</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">tree,form</field> 
+      <field name="context">{
+        'search_default_is_pegawainya':1,
+        'default_is_pegawainya':True,
+        }
+        </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+  <menuitem 
+    id="printing_contact_pegawai_menu_act" 
+    name="Pegawai" 
+    parent="printing_datacontact_menu_categ" 
+    action="pegawai_action_window" 
+    sequence="2"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+   
+    <!-- model.name tree view -->
+    <record id="printing_beli_view_tree" model="ir.ui.view">
+        <field name="name">printing.beli.view.tree</field>
+        <field name="model">printing.beli</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="harga"/>
+                <field name="pengguna"/>
+                <field name="supplier" />
+            </tree>
+        </field>
+    </record>
+
+
+
+    <!-- model.name form view -->
+    <record id="printing_beli_view_form" model="ir.ui.view">
+        <field name="name">printing.beli.view.form</field>
+        <field name="model">printing.beli</field>
+        <field name="arch" type="xml">
+            <form string="Data Pembelian Alat dan Bahan Supply">
+                <sheet>
+                    <group>
+                        <group colspan='4'>
+                            <group colspan='2'>
+                                <field name="name"/>
+                                <field name="harga"/>
+                                <field name="pengguna"/>
+                                <field name="supplier" />
+                            </group>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- model.name action window -->
+    <record id="printing_beli_action" model="ir.actions.act_window">
+        <field name="name">Data Pembelian</field>
+        <field name="res_model">printing.beli</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_smilling_face">
+                <!-- Add Text Here -->
+                Create New Purchase
+            </p>
+        </field>
+    </record>
+
+
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="printing_beli_menu_act" 
+    name="Purchase" 
+    parent="printing_dataoperasional_menu_categ" 
+    action="printing_beli_action" 
+    sequence="20"/>
+
+
+
+  </data>
+</odoo>

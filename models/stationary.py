@@ -6,6 +6,7 @@ from odoo.exceptions import ValidationError
 class stationary(models.Model):
     _name = 'printing.jenisbarang'
     _description = 'Daftar Barang Stationary'
+    _order = 'name asc'
 
     name = fields.Char(
         string='Nama Stationary',

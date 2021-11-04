@@ -52,7 +52,7 @@
     name="Customer" 
     parent="printing_datacontact_menu_categ" 
     action="customer_action_window" 
-    sequence="2"/>
+    sequence="1"/>
 
   </data>
 </odoo>

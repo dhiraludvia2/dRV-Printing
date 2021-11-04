@@ -5,3 +5,5 @@ access_printing_jeniskirim,access.printing.jeniskirim,model_printing_jeniskirim,
 access_printing_order,access.printing.order,model_printing_order,,1,1,1,1
 access_printing_detailorderatk,access.printing.detailorderatk,model_printing_detailorderatk,,1,1,1,1
 access_printing_detailorderprint,access.printing.detailorderprint,model_printing_detailorderprint,,1,1,1,1
+access_printing_supplier,access.printing.supplier,model_printing_supplier,,1,1,1,1
+access_printing_beli,access.printing.beli,model_printing_beli,,1,1,1,1

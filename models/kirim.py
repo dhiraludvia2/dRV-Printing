@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class kirim(models.Model):
     _name = 'printing.jeniskirim'
     _description = 'Daftar Teknik Kirim'
+    _order = 'name asc'
 
     name = fields.Selection(
         [("cod a","COD A"),("cod b","COD B"),("jne","JNE"),("j&t","J&T"),("anter","Anter")], 

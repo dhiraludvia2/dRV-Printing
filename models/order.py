@@ -5,6 +5,7 @@ from odoo import fields, models, api
 class order(models.Model):
     _name = 'printing.order'
     _description = 'Daftar Order dRV Printing'
+    _order = 'id desc'
 
     name = fields.Many2one(
         comodel_name='res.partner', 
@@ -51,6 +52,7 @@ class order(models.Model):
 class DetailOrderStationary(models.Model):
     _name = 'printing.detailorderatk'
     _description = 'Detail Order Stationary'
+    _order = 'name_atk asc'
 
 
     order_id = fields.Many2one(
@@ -87,6 +89,7 @@ class DetailOrderStationary(models.Model):
 class DetailOrderPrinting(models.Model):
     _name = 'printing.detailorderprint'
     _description = 'Detail Order Printing'
+    _order = 'name_print asc'
 
 
     order2_id = fields.Many2one(

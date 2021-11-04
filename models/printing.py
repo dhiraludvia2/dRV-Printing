@@ -24,6 +24,7 @@ class printing(models.Model):
     _name = 'printing.jenisprint'
     _description = 'Daftar Layanan Printing'
     _inherit = 'printing.jeniscetak'
+    _order = 'name asc'
 
     name = fields.Char(
         string='Nama Printing',

@@ -12,7 +12,7 @@
             sequence="10"/>
 
         <menuitem id="printing_dataoperasional_menu_categ"
-            name="Operasional"
+            name="Dashboard"
             parent="printing_menu_root"
             sequence="20"/>
 

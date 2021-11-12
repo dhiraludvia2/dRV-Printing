@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- model.name tree view -->
+    <record id="printing_accounting_view_tree" model="ir.ui.view">
+        <field name="name">printing.accounting.view.tree</field>
+        <field name="model">printing.accounting</field>
+        <field name="arch" type="xml">
+            <tree create='false' delete='false'>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="date"/>
+                <field name="debet"/>
+                <field name="kredit"/>
+                <field name="saldo"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- model.name action window -->
+    <record id="printing_accounting_action" model="ir.actions.act_window">
+        <field name="name">Accounting</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">printing.accounting</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK --> 
+            </p>
+        </field>
+    </record>
+
+    
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="printing_accounting_menu_act" 
+    name="Accounting" 
+    parent="printing_menu_root" 
+    action="printing_accounting_action" 
+    sequence="40"/>
+
+</odoo>

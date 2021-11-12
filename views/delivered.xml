@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- model.name tree view -->
+    <record id="printing_delivered_view_tree" model="ir.ui.view">
+        <field name="name">printing.delivered.view.tree</field>
+        <field name="model">printing.delivered</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="tgl_pesan"/>
+                <field name="tagihan"/>
+                <field name="tgl_selesai"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- model.name form view -->
+    <record id="printing_delivered_view_form" model="ir.ui.view">
+        <field name="name">printing.delivered.view.form</field>
+        <field name="model">printing.delivered</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="tgl_pesan"/>
+                        <field name="tagihan"/>
+                        <field name="tgl_selesai"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- model.name action window -->
+    <record id="printing_delivered_action" model="ir.actions.act_window">
+        <field name="name">Data Terkirim</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">printing.delivered</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK --> 
+            </p>
+        </field>
+    </record>
+
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="printing_delivered_menu_act" 
+    name="Delivered" 
+    parent="printing_dataoperasional_menu_categ" 
+    action="printing_delivered_action" 
+    sequence="15"/>
+
+</odoo>

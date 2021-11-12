@@ -9,10 +9,18 @@
         <field name="arch" type="xml">
             <tree>
                 <!-- Add your fields here -->
+                <header> 
+                    <button string="Masuk Accounting" name="confirm" type="object" class="btn btn-success"/>
+                    <button string="Keluar Accounting" name="cancel" type="object" class="btn btn-warning"/>
+                </header>
                 <field name="name"/>
+                <field name="telp"/>
                 <field name="tanggal_pesan"/>
+                <field name="tanggal_selesai"/>
                 <field name="jumlah_pesanan"/>
                 <field name="total_tagihan"/>
+                <field name="delivered"/>
+                <field name="masuk_accounting"/>
             </tree>
         </field>
     </record>

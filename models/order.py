@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models, api
+from odoo.exceptions import ValidationError
 
 class order(models.Model):
     _name = 'printing.order'
@@ -13,10 +14,34 @@ class order(models.Model):
         domain = "[('is_customernya','=',True)]",
         delegate=True)
     
+    telp = fields.Char(
+        compute='_compute_telp', 
+        string='No Telephone')
+    
+    @api.depends('name')
+    def _compute_telp(self):
+        for record in self:
+            record.telp = record.name.phone
+
     tanggal_pesan = fields.Datetime(
         string='Tanggal Pesanan',
         default=fields.Datetime.now)
     
+    tanggal_selesai = fields.Datetime(
+        string='Tanggal Terkirim',
+        compute='_compute_tanggal_selesai')
+    
+    @api.model
+    def _compute_tanggal_selesai(self):
+        for record in self:
+            tgl = self.env['printing.delivered'].search([('name','=',record.id)]).mapped('tgl_selesai')
+            if tgl:
+                record.tanggal_selesai = tgl[0]
+                record.delivered = True
+            else:
+                record.tanggal_selesai = 0
+                record.delivered = False
+
     detailorder_ids = fields.One2many(
         comodel_name='printing.detailorderatk', 
         inverse_name='order_id', 
@@ -26,6 +51,13 @@ class order(models.Model):
         comodel_name='printing.detailorderprint', 
         inverse_name='order2_id', 
         string='Detail Order')
+
+    delivered_ids = fields.One2many(
+        'printing.delivered', 
+        'name', 
+        string='Delivered')
+
+    delivered = fields.Boolean(string='Delivered')
   
     jumlah_pesanan = fields.Char(
         compute='_compute_jumlah_pesanan', 
@@ -46,7 +78,22 @@ class order(models.Model):
             total1 = sum(self.env['printing.detailorderatk'].search([('order_id','=',record.id)]).mapped('jumlah_harga'))
             total2 = sum(self.env['printing.detailorderprint'].search([('order2_id','=',record.id)]).mapped('jumlah_harga'))
             record.total_tagihan = total1 + total2
-    
+
+    masuk_accounting = fields.Boolean(string='To Accounting')
+
+    def confirm(self):
+        for record in self:
+            if record.tanggal_selesai:
+                record.masuk_accounting = True
+                self.env['printing.accounting'].create({'kredit':record.total_tagihan,'name':record.name.display_name})
+            else:
+                raise ValidationError('STILL DELIVER TO CUSTOMER')
+
+    def cancel(self):
+        for record in self:
+            record.masuk_accounting = False
+            data = self.env['printing.accounting'].search([('name','=',record.name.display_name)])
+            data.unlink()
 
 
 class DetailOrderStationary(models.Model):
@@ -84,8 +131,7 @@ class DetailOrderStationary(models.Model):
             record.jumlah_harga = record.harga_atk * record.banyaknya_atk 
     
     
-
-
+    
 class DetailOrderPrinting(models.Model):
     _name = 'printing.detailorderprint'
     _description = 'Detail Order Printing'

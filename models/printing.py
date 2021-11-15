@@ -17,8 +17,8 @@ class cetak(models.Model):
         string='Ukuran Printing',
         required=True)
 
+    image = fields.Binary(string='Printing Pic')
     
-
     
 class printing(models.Model):
     _name = 'printing.jenisprint'

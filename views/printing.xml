@@ -28,6 +28,7 @@
         <field name="arch" type="xml">
             <form string="Daftar Printing">
                 <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
                     <group>
                         <!-- Add your fields here -->
                         <group colspan='4'>

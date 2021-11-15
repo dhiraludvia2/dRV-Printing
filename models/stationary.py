@@ -39,6 +39,8 @@ class stationary(models.Model):
         string='Kurir',
         domain="[('is_pegawainya','ilike',True)]")
     
+    image = fields.Binary(string='Stationary Pic')
+    
     @api.onchange('satuan')
     def _onchange_satuan(self):
         if self.satuan == 'pcs':

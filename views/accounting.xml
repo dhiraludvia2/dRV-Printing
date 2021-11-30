@@ -19,6 +19,27 @@
     </record>
 
 
+    <!-- printing.accounting form view -->
+    <record id="printing_accounting_view_form" model="ir.ui.view">
+        <field name="name">printing.accounting.view.form</field>
+        <field name="model">printing.accounting</field>
+        <field name="arch" type="xml">
+            <form string="Accounting" edit="false" create="false" delete="false">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="debet"/>
+                        <field name="kredit"/>
+                        <field name="saldo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
     <!-- model.name action window -->
     <record id="printing_accounting_action" model="ir.actions.act_window">
         <field name="name">Accounting</field>
@@ -40,6 +61,6 @@
     name="Accounting" 
     parent="printing_menu_root" 
     action="printing_accounting_action" 
-    sequence="40"/>
+    sequence="50"/>
 
 </odoo>

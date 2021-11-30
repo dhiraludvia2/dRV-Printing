@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from odoo.addons.drv_printing.models.delivered import delivered
 from . import stationary,printing,kirim,order
 from . import partner 
-from . import purchase
+from . import material
 from . import delivered
 from . import accounting
+from . import purchase
+from . import accepted

@@ -9,3 +9,5 @@ access_printing_supplier,access.printing.supplier,model_printing_supplier,,1,1,1
 access_printing_beli,access.printing.beli,model_printing_beli,,1,1,1,1
 access_printing_delivered,access.printing.delivered,model_printing_delivered,,1,1,1,1
 access_printing_accounting,access.printing.accounting,model_printing_accounting,,1,1,1,1
+access_printing_purchase,access.printing.purchase,model_printing_purchase,,1,1,1,1
+access_printing_accept,access.printing.accept,model_printing_accept,,1,1,1,1

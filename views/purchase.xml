@@ -1,40 +1,46 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
-   
-    <!-- model.name tree view -->
-    <record id="printing_beli_view_tree" model="ir.ui.view">
-        <field name="name">printing.beli.view.tree</field>
-        <field name="model">printing.beli</field>
+
+    <!-- printing.purchase tree view -->
+    <record id="printing_purchase_view_tree" model="ir.ui.view">
+        <field name="name">printing.purchase.view.tree</field>
+        <field name="model">printing.purchase</field>
         <field name="arch" type="xml">
             <tree>
+                <header> 
+                    <button string="Masuk Accounting" name="confirm" type="object" class="btn btn-success"/>
+                    <button string="Keluar Accounting" name="cancel" type="object" class="btn btn-warning ml-1"/>
+                </header>
                 <!-- Add your fields here -->
                 <field name="name"/>
-                <field name="harga"/>
-                <field name="pengguna"/>
-                <field name="supplier" />
+                <field name="supplier"/>
+                <field name="telp"/>
+                <field name="tanggal_pesan"/>
+                <field name="tanggal_masuk"/>
+                <field name="jumlah_pesan"/>
+                <field name="tagihan"/>
+                <field name="accept"/>
+                <field name="masuk_accounting"/>
             </tree>
         </field>
     </record>
 
 
-
-    <!-- model.name form view -->
-    <record id="printing_beli_view_form" model="ir.ui.view">
-        <field name="name">printing.beli.view.form</field>
-        <field name="model">printing.beli</field>
+    <!-- printing.purchase form view -->
+    <record id="printing_purchase_view_form" model="ir.ui.view">
+        <field name="name">printing.purchase.view.form</field>
+        <field name="model">printing.purchase</field>
         <field name="arch" type="xml">
-            <form string="Data Pembelian Alat dan Bahan Supply">
+            <form string="">
                 <sheet>
                     <group>
-                        <group colspan='4'>
-                            <group colspan='2'>
-                                <field name="name"/>
-                                <field name="harga"/>
-                                <field name="pengguna"/>
-                                <field name="supplier" />
-                            </group>
-                        </group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="supplier"/>
+                        <field name="telp"/>
+                        <field name="tanggal_pesan"/>
+                        <field name="jumlah_pesan"/>
+                        <field name="tagihan"/>
                     </group>
                 </sheet>
             </form>
@@ -42,29 +48,27 @@
     </record>
 
 
-    <!-- model.name action window -->
-    <record id="printing_beli_action" model="ir.actions.act_window">
-        <field name="name">Data Pembelian</field>
-        <field name="res_model">printing.beli</field>
+    <!-- printing.purchase action window -->
+    <record id="printing_purchase_action" model="ir.actions.act_window">
+        <field name="name">Data Purchase</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">printing.purchase</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
-            <p class="oe_view_nocontent_smilling_face">
+            <p class="oe_view_nocontent_create">
                 <!-- Add Text Here -->
-                Create New Purchase
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK --> 
             </p>
         </field>
     </record>
 
 
-
     <!-- This Menu Item must have a parent and an action -->
-    <menuitem id="printing_beli_menu_act" 
+    <menuitem id="printing_purchase_menu_act" 
     name="Purchase" 
-    parent="printing_dataoperasional_menu_categ" 
-    action="printing_beli_action" 
+    parent="printing_datapembelian_menu_categ" 
+    action="printing_purchase_action" 
     sequence="20"/>
 
-
-
-  </data>
 </odoo>

@@ -10,8 +10,8 @@
                 <!-- Add your fields here -->
                 <field name="name"/>
                 <field name="tgl_pesan"/>
-                <field name="tagihan"/>
                 <field name="tgl_selesai"/>
+                <field name="tagihan"/>
             </tree>
         </field>
     </record>
@@ -28,8 +28,8 @@
                         <!-- Add your fields here -->
                         <field name="name"/>
                         <field name="tgl_pesan"/>
-                        <field name="tagihan"/>
                         <field name="tgl_selesai"/>
+                        <field name="tagihan"/>
                     </group>
                 </sheet>
             </form>

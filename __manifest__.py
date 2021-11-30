@@ -26,10 +26,12 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/accepted.xml',
         'views/accounting.xml',
         'views/customer.xml',
         'views/delivered.xml',
         'views/kirim.xml',
+        'views/material.xml',
         'views/menu.xml',
         'views/order.xml',
         'views/pegawai.xml',

@@ -29,7 +29,7 @@ class supplier(models.Model):
         required=True)
 
     phone = fields.Char(
-        string='Nomor Telepon',
+        string='No Telephone',
         required=True)
     
     beli = fields.One2many(

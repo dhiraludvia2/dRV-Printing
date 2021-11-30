@@ -21,7 +21,10 @@
             parent="printing_menu_root"
             sequence="30"/>
 
-        
+        <menuitem id="printing_datapembelian_menu_categ"
+            name="Purchasing"
+            parent="printing_menu_root"
+            sequence="40"/>
 
     </data>
 </odoo>

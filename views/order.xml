@@ -11,7 +11,7 @@
                 <!-- Add your fields here -->
                 <header> 
                     <button string="Masuk Accounting" name="confirm" type="object" class="btn btn-success"/>
-                    <button string="Keluar Accounting" name="cancel" type="object" class="btn btn-warning"/>
+                    <button string="Keluar Accounting" name="cancel" type="object" class="btn btn-warning ml-1"/>
                 </header>
                 <field name="name"/>
                 <field name="telp"/>
